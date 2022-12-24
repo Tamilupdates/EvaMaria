@@ -5,7 +5,7 @@ from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
 from database.users_chats_db import db
 from database.ia_filterdb import Media
 from utils import get_size, temp, get_settings
-from Script import script
+from script import script
 from pyrogram.errors import ChatAdminRequired
 
 """-------------------------------------------------------------------------------"""
@@ -22,7 +22,7 @@ async def save_group(bot, message):
         if message.chat.id in temp.BANNED_CHATS:
             # Inspired from a boat of a banana tree
             buttons = [[
-                InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url=f'https://t.me/{SUPPORT_CHAT}')
+                InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url=f'https://telegram.dog/{SUPPORT_CHAT}')
             ]]
             reply_markup=InlineKeyboardMarkup(buttons)
             k = await message.reply(
@@ -37,8 +37,8 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-            InlineKeyboardButton('𝙷𝙾𝚆 𝚃𝙾 𝚄𝚂𝙴 𝙼𝙴', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 UᎮDΛTΞS 📢', url='https://t.me/greymatter_bots')
+            InlineKeyboardButton('𝙷𝙾𝚆 𝚃𝙾 𝚄𝚂𝙴 𝙼𝙴', url=f"https://telegram.dog/{temp.U_NAME}?start=help"),
+            InlineKeyboardButton('📢 UᎮDΛTΞS 📢', url='https://telegram.dog/greymatter_bots')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -70,7 +70,7 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url=f'https://telegram.dog/{SUPPORT_CHAT}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -109,7 +109,7 @@ async def disable_chat(bot, message):
     await message.reply('Chat Successfully Disabled')
     try:
         buttons = [[
-            InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url=f'https://telegram.dog/{SUPPORT_CHAT}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -174,7 +174,7 @@ async def gen_invite(bot, message):
 
 @Client.on_message(filters.command('ban') & filters.user(ADMINS))
 async def ban_a_user(bot, message):
-    # https://t.me/GetTGLink/4185
+    # https://telegram.dog/GetTGLink/4185
     if len(message.command) == 1:
         return await message.reply('Give me a user id / username')
     r = message.text.split(None)
@@ -241,7 +241,7 @@ async def unban_a_user(bot, message):
     
 @Client.on_message(filters.command('users') & filters.user(ADMINS))
 async def list_users(bot, message):
-    # https://t.me/GetTGLink/4184
+    # https://telegram.dog/GetTGLink/4184
     raju = await message.reply('Getting List Of Users')
     users = await db.get_all_users()
     out = "Users Saved In DB Are:\n\n"

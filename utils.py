@@ -56,7 +56,7 @@ async def is_subscribed(bot, query):
 
 async def get_poster(query, bulk=False, id=False, file=None):
     if not id:
-        # https://t.me/GetTGLink/4183
+        # https://telegram.dog/GetTGLink/4183
         query = (query.strip()).lower()
         title = query
         year = re.findall(r'[1-2]\d{3}$', query, re.IGNORECASE)
@@ -383,8 +383,8 @@ async def get_shortlink(link):
     if "http" == https:
         https = "https"
         link = link.replace("http", https)
-    url = f'https://Clicksfly.com/api'
-    params = {'api': URL_SHORTNER_WEBSITE_API,
+    url = f'https://{SHORTENER}/api'
+    params = {'api': SHORTENER_API,
               'url': link,
               }
 
@@ -396,8 +396,8 @@ async def get_shortlink(link):
                     return data['shortenedUrl']
                 else:
                     logger.error(f"Error: {data['message']}")
-                    return f'https://{URL_SHORTENR_WEBSITE}/api?api={URL_SHORTNER_WEBSITE_API}&link={link}'
+                    return f'https://{SHORTENER}/api?api={SHORTENER_API}&link={link}'
 
     except Exception as e:
         logger.error(e)
-        return f'{URL_SHORTENR_WEBSITE}/api?api={URL_SHORTNER_WEBSITE_API}&link={link}'
+        return f'https://{SHORTENER}/api?api={SHORTENER_API}&link={link}'

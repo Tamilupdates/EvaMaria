@@ -2,7 +2,7 @@ import os
 import logging
 import random
 import asyncio
-from Script import script
+from script import script
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -23,13 +23,7 @@ async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
-                InlineKeyboardButton('⚡ UᎮDΛTΞS ⚡', url='https://t.me/greymatter_bots')
-            ],
-            [
-                InlineKeyboardButton('⚡ SUBSCᏒIBΞ ⚡', url=f"https://youtube.com/c/GreyMattersBot"),
-            ],
-            [
-                InlineKeyboardButton(text=DOWNLOAD_TEXT_NAME,url=DOWNLOAD_TEXT_URL)
+                InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -45,14 +39,9 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('⚚ ΛᎠᎠ MΞ ϮԾ YԾUᏒ GᏒԾUᎮ ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('⚡ SUBSCᏒIBΞ ⚡', url='https://youtube.com/c/GreyMattersBot'),
-            InlineKeyboardButton('🤖 UᎮDΛTΞS 🤖', url='https://t.me/greymatter_bots')
-            ],[
-            InlineKeyboardButton('♻️ HΞLᎮ ♻️', callback_data='help'),
-            InlineKeyboardButton('♻️ ΛBOUT ♻️', callback_data='about')
-        ]]
+            InlineKeyboardButton(text=UPDATES_BTN_NAME, url=UPDATES_BTN_URL)
+            ]
+        ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -70,7 +59,7 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "🔥 JOIИ UᎮDΛTΞS CHΛИИΞL 🔥", url=invite_link.invite_link
+                    "🔥 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 🔥", url=invite_link.invite_link
                 )
             ]
         ]
@@ -81,7 +70,7 @@ async def start(client, message):
                 pre = 'checksubp' if kk == 'filep' else 'checksub' 
                 btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
             except (IndexError, ValueError):
-                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://telegram.dog/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
             text="**𝑱𝒐𝒊𝒏 𝑶𝒖𝒓 𝑴𝒐𝒗𝒊𝒆 𝑼𝒑𝒅𝒂𝒕𝒆𝒔 𝑪𝒉𝒂𝒏𝒏𝒆𝒍 𝑻𝒐 𝑼𝒔𝒆 𝑻𝒉𝒊𝒔 𝑩𝒐𝒕!**",
@@ -91,14 +80,9 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('⚚ ΛᎠᎠ MΞ ϮԾ YԾUᏒ GᏒԾUᎮ ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('⚡ SUBSCᏒIBΞ ⚡', url='https://youtube.com/c/GreyMattersBot'),
-            InlineKeyboardButton('🤖 UᎮDΛTΞS 🤖', url='https://t.me/greymatter_bots')
-            ],[
-            InlineKeyboardButton('♻️ HΞLᎮ ♻️', callback_data='help'),
-            InlineKeyboardButton('♻️ ΛBOUT ♻️', callback_data='about')
-        ]]
+            InlineKeyboardButton(text=UPDATES_BTN_NAME, url=UPDATES_BTN_URL)
+            ]
+        ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -247,7 +231,7 @@ async def start(client, message):
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('sᴜʙsᴄʀɪʙᴇ', url='https://youtube.com/c/GreyMattersBot') ] ] ),
+        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL) ] ] ),
         protect_content=True if pre == 'filep' else False,
         )
                     
