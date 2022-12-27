@@ -37,7 +37,7 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-            InlineKeyboardButton('𝙷𝙾𝚆 𝚃𝙾 𝚄𝚂𝙴 𝙼𝙴', url=f"https://telegram.dog/{temp.U_NAME}?start=help"),
+            InlineKeyboardButton('ʜᴏᴡ ᴛᴏ ᴜꜱᴇ ᴍᴇ', url=f"https://telegram.dog/{temp.U_NAME}?start"),
             InlineKeyboardButton('📢 ᴜᴘᴅᴀᴛᴇꜱ 📢', url=UPDATES_BTN_URL)
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
