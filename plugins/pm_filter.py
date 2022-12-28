@@ -109,17 +109,9 @@ async def next_page(bot, query):
 
     btn.insert(0, 
         [
-            InlineKeyboardButton('⚡ᴀʟᴘʜᴀ⚡', url='https://telegram.me/+9EQa4MbmhicyZTY1'),
-            InlineKeyboardButton('⚡ʙᴇᴛᴀ⚡', url='https://telegram.me/+QAjLxPtxkwE1NmY1'),
-            InlineKeyboardButton('⚡ɢᴀᴍᴍᴀ⚡', url='https://telegram.me/+5RLzYBPqu6JiZjI1')
+            InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
         ]
 )   
-
-    btn.insert(1,
-    [
-        InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
-    ]
-)
 
     if 0 < offset <= 10:
         off_set = 0
@@ -700,18 +692,10 @@ async def auto_filter(client, msg, spoll=False):
 
     btn.insert(0, 
         [
-            InlineKeyboardButton('⚡ᴀʟᴘʜᴀ⚡', url='https://telegram.me/+9EQa4MbmhicyZTY1'),
-            InlineKeyboardButton('⚡ʙᴇᴛᴀ⚡', url='https://telegram.me/+QAjLxPtxkwE1NmY1'),
-            InlineKeyboardButton('⚡ɢᴀᴍᴍᴀ⚡', url='https://telegram.me/+5RLzYBPqu6JiZjI1')
+            InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
         ]
 )   
 
-    btn.insert(1,
-        [
-            InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
-        ]
-)
-        
     btn.append(
         [
             InlineKeyboardButton(text=DOWNLOAD_BTN_NAME, url=DOWNLOAD_BTN_URL)
@@ -897,3 +881,5 @@ async def manual_filters(client, message, text=False):
                 break
     else:
         return False
+
+        
