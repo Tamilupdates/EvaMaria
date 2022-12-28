@@ -91,10 +91,6 @@ LOG_STR += (f"MAX_LIST_ELM Found, long list will be shortened to first {MAX_LIST
 LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
 
 # EXTRA FEATURES
-# URL Shortener
-SHORTENER = environ.get('SHORTENER', '')                                # Recommended
-SHORTENER_API = environ.get('SHORTENER_API', '')                        # Recommended
-
 # Auto Delete For Group Message (Self Delete)
 SELF_DELETE_SECONDS = int(environ.get('SELF_DELETE_SECONDS', 300))
 SELF_DELETE = environ.get('SELF_DELETE', True)
