@@ -1,6 +1,5 @@
 ## • What's New ?
 
-- ⟴ URL Shortener Added
 - ⟴ Self Delete Added (Auto delete)
 - ⟴ Filter On Off Option Added
 - ⟴ Custom Welcome Message
@@ -11,7 +10,6 @@
 ## Features
 
 - [x] 2GB+ Files Now Support
-- [x] URL Shortener Added
 - [x] Custom Buttons
 - [x] Auto Filter
 - [x] Manual Filter
@@ -45,8 +43,6 @@ Read [this](https://telegram.dog/Nanthakps) before you start messing up with you
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
 * Check [info.py](https://github.com/Tamilupdates/Auto-Filter-Bot/blob/main/info.py) for more
 ## EXTRA FEATURES
-* `SHORTENER`: URL Shortener Website Link ( Without https://)
-* `URL_SHORTNER_WEBSITE_API`: URL Shortener Website API key
 * `SELF_DELETE`: True if SELF_DELETE is On, False if Off
 * `SELF_DELETE_SECONDS`: Enter Seconds to be SELF_DELETE 
 * `START_TXT`: Enter Your Start Message
