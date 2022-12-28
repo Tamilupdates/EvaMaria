@@ -91,6 +91,7 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
+    
     else:
         btn = [
             [
@@ -110,7 +111,7 @@ async def next_page(bot, query):
         [
             InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
         ]
-    )
+)
 
     if 0 < offset <= 10:
         off_set = 0
@@ -118,10 +119,11 @@ async def next_page(bot, query):
         off_set = None
     else:
         off_set = offset - 10
-
        
     btn.append(
-    [InlineKeyboardButton(text=DOWNLOAD_BTN_NAME, url=DOWNLOAD_BTN_URL)]
+        [
+            InlineKeyboardButton(text=DOWNLOAD_BTN_NAME, url=DOWNLOAD_BTN_URL)
+        ]
 )
 
     if n_offset == 0:
@@ -437,9 +439,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
-        buttons = [[
-            InlineKeyboardButton(text=UPDATES_BTN_NAME, url=UPDATES_BTN_URL)
-            ],
+        buttons = [
+            [
+                InlineKeyboardButton(text=UPDATES_BTN_NAME, url=UPDATES_BTN_URL)
+            ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -690,11 +693,12 @@ async def auto_filter(client, msg, spoll=False):
         [
             InlineKeyboardButton(text=SUBSCRIBE_BTN_NAME, url=SUBSCRIBE_BTN_URL)
         ]
-    )
-
-    
+)
+   
     btn.append(
-    [InlineKeyboardButton(text=DOWNLOAD_BTN_NAME, url=DOWNLOAD_BTN_URL)]
+        [
+            InlineKeyboardButton(text=DOWNLOAD_BTN_NAME, url=DOWNLOAD_BTN_URL)
+        ]
 )
 
     if offset != "":
@@ -825,8 +829,6 @@ async def advantage_spell_chok(msg):
     await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
                     reply_markup=InlineKeyboardMarkup(btn))
 
-
-
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
     name = text or message.text
@@ -878,4 +880,3 @@ async def manual_filters(client, message, text=False):
                 break
     else:
         return False
-   
